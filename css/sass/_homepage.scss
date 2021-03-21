@@ -160,6 +160,20 @@
             }
         }
     }
+
+    &__blog {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:3.5rem;
+
+        &--title {
+            grid-column: 1/-1;
+
+            h2 {
+                font-family: var(--heading-font);
+            }
+        }
+    }
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }

@@ -85,7 +85,75 @@ select {
   --primary-color:#7FDEFF;
   --secondary-color:#FF47D6;
   --tertiary-color:"";
-  --body-text:#666;
+  --body-text:#333;
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--bg-card);
+  overflow: hidden;
+  border: 3px solid rgba(17, 17, 17, 0.25);
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+.cards__inner {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1.5rem 2rem;
+}
+
+.cards__inner h2 {
+  margin-bottom: 1rem;
+}
+
+.cards__body {
+  margin-bottom: 1.5rem;
+  color: var(--body-text);
+}
+
+.cards__body blockquote {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  border-left: 1px solid var(--secondary-color);
+}
+
+.cards__body blockquote blockquote {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.cards__body h2 {
+  margin-bottom: 1rem;
+}
+
+.cards__body ul, .cards__body ol {
+  margin: 1rem;
+  padding: 0;
+}
+
+.cards__button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 30px;
+  color: #111;
+  border: 3px solid currentColor;
 }
 
 .nav {
@@ -425,6 +493,22 @@ body {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.homepage__blog {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+
+.homepage__blog--title {
+  grid-column: 1/-1;
+}
+
+.homepage__blog--title h2 {
+  font-family: var(--heading-font);
 }
 
 @-webkit-keyframes spin {
