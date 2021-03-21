@@ -178,6 +178,11 @@
                 font-family: var(--heading-font);
             }
         }
+
+        &--more {
+            justify-self: center;
+            grid-column: 1/-1;
+        }
     }
 
     &__cta {

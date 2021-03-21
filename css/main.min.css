@@ -127,6 +127,36 @@ select {
   border: 3px solid currentColor;
 }
 
+.cards__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cards__info img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 5px solid rgba(17, 17, 17, 0.25);
+}
+
+.cards__info a {
+  color: inherit;
+  font-weight: bold;
+}
+
+.cards__photo {
+  position: relative;
+  height: 0;
+  padding-bottom: 50%;
+  background: linear-gradient(135deg, #FFF886 0%, #F072B6 100%);
+}
+
 .cards__inner {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -142,6 +172,11 @@ select {
 .cards__body {
   margin-bottom: 1.5rem;
   color: var(--body-text);
+}
+
+.cards__body a {
+  color: var(--secondary-color);
+  font-weight: bold;
 }
 
 .cards__body blockquote {
@@ -180,6 +215,12 @@ select {
   color: #fff;
   background-color: #111;
   border: 3px solid #111;
+}
+
+.cards__button.is--secondary {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: transparent;
 }
 
 .cta {
@@ -603,6 +644,12 @@ body {
 
 .homepage__blog--title h2 {
   font-family: var(--heading-font);
+}
+
+.homepage__blog--more {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  grid-column: 1/-1;
 }
 
 .homepage__cta {

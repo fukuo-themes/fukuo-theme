@@ -30,6 +30,32 @@
         }
     }
 
+    &__info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        
+        img {
+            width:45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            border:5px solid rgba(#111, 0.25);
+        }
+
+        a {
+            color:inherit;
+            font-weight: bold;
+        }
+    }
+
+    &__photo {
+        position: relative;
+        height: 0;
+        padding-bottom: 50%;
+        background: linear-gradient(135deg, #FFF886 0%, #F072B6 100%);
+    }
+
     &__inner {
         flex-grow: 1;
         padding:1.5rem 2rem;
@@ -43,6 +69,11 @@
     &__body {
         margin-bottom: 1.5rem;
         color:var(--body-text);
+
+        a {
+            color:var(--secondary-color);
+            font-weight: bold;
+        }
 
         blockquote {
             margin:1rem 0;
@@ -81,6 +112,12 @@
         background-color:#111;
 
         border:3px solid #111;
+
+        &.is--secondary {
+            border-color:var(--secondary-color);
+            color:var(--secondary-color);
+            background-color:transparent;
+        }
     }
 }
 
@@ -121,7 +158,6 @@
         margin-top: 1rem;
         margin-bottom: 1.5rem;   
     }
-    
 
     &__button {
         display: inline-flex;

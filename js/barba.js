@@ -1,8 +1,6 @@
 function init() {
 
     const loader = document.querySelector('.loader');
-
-    // reset position of the loading screen
     gsap.set(loader, {
         scaleX: 0,
         rotation: 10,
@@ -13,7 +11,6 @@ function init() {
     });
 
     function loaderIn() {
-        // GSAP tween to strech the loading screen across the whole screen
         return gsap.fromTo(loader,
             {
                 rotation: 10,
@@ -31,7 +28,6 @@ function init() {
     }
 
     function loaderAway() {
-        // GSAP tween to hide loading screen
         return gsap.to(loader, {
             duration: 0.8,
             scaleX: 0,
@@ -42,17 +38,11 @@ function init() {
         });
     }
 
-    // do something before the transition starts
     barba.hooks.before(() => {
-
         document.querySelector('html').classList.add('is-transitioning');
         barba.wrapper.classList.add('is-animating');
-
-
-
     });
 
-    // do something after the transition finishes
     barba.hooks.after((data) => {
 
         document.querySelector('html').classList.remove('is-transitioning');
@@ -61,7 +51,6 @@ function init() {
 
     });
 
-    // scroll to the top of the page
     barba.hooks.enter(() => {
 
         window.scrollTo(0, 0);
@@ -98,7 +87,6 @@ function init() {
         transitions: [{
             async leave() {
                 await loaderIn();
-
             },
             enter() {
                 loaderAway();
@@ -108,7 +96,6 @@ function init() {
             }
         }]
     })
-
 }
 
 window.addEventListener('load', function () {
