@@ -26,7 +26,9 @@ fetch(url)
         for (let i = 0; i < 2; i++) {
             let posts = read.posts[i];
             let {
+                id_string,
                 date,
+                reblog_key,
                 note_count,
                 title,
                 is_pinned,
@@ -42,26 +44,27 @@ fetch(url)
                 ]
             } = posts;
 
-
-
-            /*
-            photos: [
-                    {
-                        original_size: {
-                            url: photo_url
-                        }
-                    }
-                ]
-            */
-
             const article = document.createElement("div");
             article.className = 'cards';
             if (type == "text") {
                 article.innerHTML = `
                 <div class="cards__inner">
                     <div class="cards__info">
-                        <img src="https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/96" alt="${username}">
-                        <span>Posted by <a href="https://${username}.tumblr.com/">${username}</a></span>
+                        <div>
+                            <img src="https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/96" alt="${username}">
+                            <span>Posted by <a href="https://${username}.tumblr.com/">${username}</a></span>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="like">
+                                    <a href="" aria-label="Like"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                                </li>
+                                <li><a href="https://www.tumblr.com/reblog/${username}/${id_string}/${reblog_key}" aria-label="Reblog"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cards__date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${date}</span>
                     </div>
                     <h2>${title}</h2>
                     <div class="cards__body">

@@ -127,7 +127,7 @@ select {
   border: 3px solid currentColor;
 }
 
-.cards__info {
+.cards__date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,9 +135,38 @@ select {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 1rem;
+  font-family: var(--heading-font);
 }
 
-.cards__info img {
+.cards__date svg {
+  margin-right: 0.5rem;
+}
+
+.cards__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--tertiary-color);
+}
+
+.cards__info > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards__info > div img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -145,9 +174,23 @@ select {
   border: 5px solid rgba(17, 17, 17, 0.25);
 }
 
-.cards__info a {
+.cards__info > div a {
   color: inherit;
   font-weight: bold;
+}
+
+.cards__info > div ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards__info > div ul li + li {
+  margin-left: 1rem;
 }
 
 .cards__photo {
@@ -469,8 +512,15 @@ body {
 
 .homepage__sticker {
   position: absolute;
-  right: 4rem;
-  top: 6.5rem;
+  right: 3.5rem;
+  top: -3.5rem;
+}
+
+@media (max-width: 60rem) {
+  .homepage__sticker {
+    right: 1rem;
+    top: -1rem;
+  }
 }
 
 .homepage__sticker svg {
@@ -478,6 +528,13 @@ body {
   height: 120px;
   -webkit-animation: spin 6s linear infinite;
   animation: spin 6s linear infinite;
+}
+
+@media (max-width: 60rem) {
+  .homepage__sticker svg {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .homepage__intro {
@@ -517,13 +574,13 @@ body {
 }
 
 .homepage__featured {
+  position: relative;
   margin-top: 3.5rem;
   background: radial-gradient(circle at 100% 0%, #FFA800, transparent 30%), radial-gradient(circle at 100% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 10%, #c9f1ff, #c9f1ff, transparent 35%);
   padding: 6.5rem 3.5rem;
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
-  overflow: hidden;
 }
 
 @media (max-width: 60rem) {
@@ -560,7 +617,8 @@ body {
 
 @media (max-width: 60rem) {
   .homepage__featured--slider {
-    padding: 1.5rem 1.5rem;
+    background: transparent;
+    padding: 1.5rem 0rem;
   }
 }
 
@@ -634,7 +692,7 @@ body {
   .homepage__blog {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 }
 

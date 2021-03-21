@@ -12,12 +12,22 @@
 
     &__sticker {
         position: absolute;
-        right:4rem;
-        top:6.5rem;
+        right:3.5rem;
+        top:-3.5rem;
+
+        @media (max-width:60rem) {
+           right: 1rem;
+           top:-1rem;
+        }
 
         svg {
             width:120px;
             height: 120px;
+
+            @media (max-width:60rem) {
+                width: 80px;
+                height: 80px;
+            }
 
             -webkit-animation:spin 6s linear infinite;
             -moz-animation:spin 6s linear infinite;
@@ -58,6 +68,8 @@
     }
 
     &__featured {
+        position: relative;
+
         margin-top:3.5rem;
         background: radial-gradient(circle at 100% 0%, #FFA800, transparent 30%), radial-gradient(circle at 100% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 10%, #c9f1ff, #c9f1ff, transparent 35%);
         padding:6.5rem 3.5rem;
@@ -69,8 +81,6 @@
         @media (max-width:60rem) {
             padding:3.5rem 1.5rem;
         }
-
-        overflow: hidden;
 
         &--desc {
             h2 {
@@ -101,7 +111,8 @@
             // margin-right: -10rem;
 
             @media (max-width:60rem) {
-                padding:1.5rem 1.5rem;
+                background:transparent;
+                padding:1.5rem 0rem;
             }
         }
     }
@@ -168,7 +179,7 @@
 
         @media (max-width:60rem) {
             grid-template-columns: 1fr;
-            padding:0 1rem;
+            padding:0 0.5rem;
         }
 
         &--title {
