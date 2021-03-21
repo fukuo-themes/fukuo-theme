@@ -1,0 +1,167 @@
+.homepage {
+    position: relative;
+    margin:6.5rem auto auto auto;
+
+    width: 100%;
+    max-width: 75rem;
+    padding-bottom: 6.5rem;
+
+    @media (max-width:60rem) {
+        padding:0 1rem;
+    }
+
+    &__sticker {
+        position: absolute;
+        right:4rem;
+        top:6.5rem;
+
+        svg {
+            width:120px;
+            height: 120px;
+
+            -webkit-animation:spin 6s linear infinite;
+            -moz-animation:spin 6s linear infinite;
+            animation:spin 6s linear infinite;
+        }
+    }
+
+    &__intro {
+        h1 {
+            margin-bottom: 1.15rem;
+
+            span {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: -15px;
+                    top: 0;
+                    width: calc(100% + 30px);
+                    height: 55px;
+                    border-radius: 50%;
+                    z-index: -1;
+                    transform: rotate(15deg);
+                    border: 4px solid var(--primary-color);
+                   
+                }
+            }
+        }
+
+        em {
+            color:var(--secondary-color);
+        }
+
+        font-family: var(--heading-font);
+    }
+
+    &__featured {
+        margin-top:3.5rem;
+        background: radial-gradient(circle at 100% 0%, #FFA800, transparent 30%), radial-gradient(circle at 100% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 10%, #c9f1ff, #c9f1ff, transparent 35%);
+        padding:6.5rem 3.5rem;
+
+        border-radius: 15px;
+        -moz-border-radius:15px;
+        -webkit-border-radius:15px;
+
+        @media (max-width:60rem) {
+            padding:3.5rem 1.5rem;
+        }
+
+        overflow: hidden;
+
+        &--desc {
+            h2 {
+                margin-bottom: 0.5rem;
+                font-family: var(--heading-font);
+            }
+
+            width: 100%;
+            max-width: 45rem;
+        }
+
+        &--slider {
+            margin-top: 5rem;
+
+            @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+                -webkit-backdrop-filter: blur(8px);
+                backdrop-filter: blur(8px);
+            }
+
+            background:rgba(white, 0.5);
+            padding:3.5rem 3.75rem;
+
+            border-radius: 15px;
+            -moz-border-radius:15px;
+            -webkit-border-radius:15px;
+
+            // padding-left: 10rem;
+            // margin-right: -10rem;
+
+            @media (max-width:60rem) {
+                padding:1.5rem 1.5rem;
+            }
+        }
+    }
+
+    &__card {
+        &--inner {
+            display: flex;
+            flex-direction: column;
+            background-color:var(--bg-card);
+            overflow: hidden;
+
+            border:3px solid rgba(#111, 0.25);
+
+            border-radius: 15px;
+            -moz-border-radius:15px;
+            -webkit-border-radius:15px;
+        }
+
+        .body__caption {
+            flex-grow: 1;
+            padding:1.5rem 2rem;
+
+            p {
+                font-style: 0.95rem;
+                color:var(--body-text);
+            }
+        }
+
+        .body__heading, .body__categories {
+            font-family: var(--heading-font);
+        }
+
+        .body__heading {
+            margin-bottom: 1rem;
+        }
+
+        figure {
+            position: relative;
+            height: 0;
+            padding-bottom: 60%;
+            width: 100%;
+            margin:0;
+
+            img {
+                position: absolute;
+                left:0;
+                top:0;
+                right: 0;
+                bottom: 0;
+
+                width:100%;
+                height: 100%;
+
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

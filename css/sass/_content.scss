@@ -1,0 +1,83 @@
+body {
+    min-height: 100vh;
+
+    font-family: var(--body-font);
+}
+
+@font-face {
+  font-family: 'Argent Pixel CF';
+  src: url('/fonts/ArgentPixelCF-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/ArgentPixelCF-Regular.woff') format('woff');
+  
+   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Argent Pixel CF';
+  src: url('/fonts/ArgentPixelCF-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/ArgentPixelCF-Italic.woff') format('woff');
+  
+   font-style: italic;
+}
+
+.tns-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-bottom: 1.75rem;
+
+  > button {
+    display: inline-flex;
+    align-items: center;
+    border:2px solid rgba(#111, 0.2);
+    padding:0.35rem 1rem;
+
+    background-color:var(--primary-color);
+
+    border-radius:30px;
+    -moz-border-radius:30px;
+    -webkit-border-radius:30px;
+
+    @media (max-width:60rem) {
+      span { display: none;}
+    }
+
+    svg {
+      margin:0 0.25rem;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      background-color:#ddd;
+    }
+
+    & + button {
+      margin-left: 1.25rem;
+    }
+  }
+}
+
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 200vh;
+  pointer-events: none;
+  background-color:#eee;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress;
+}
+
+#my-scrollbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
