@@ -24,9 +24,10 @@ fetch(url)
         let read = data.response;
         console.log(read);
 
-        for (let k = 1; k <= 4; k++) {
+        for (let k = 0; k < 4; k++) {
             let posts = read.posts[k];
             let titleArticle = posts.title;
+            let isPinned = posts.is_pinned;
 
             let bodyArticle = posts.body;
             let linkArticle = posts.post_url;
@@ -39,14 +40,18 @@ fetch(url)
                 <div class="cards__body">
                     ${bodyArticle}
                 </div>
-                <a class="cards__button" href="${linkArticle}" target="_blank">Read more</a>
+                <a class="cards__button" href="${linkArticle}" target="_blank">Read more <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
             </div>
             `;
             truncate(article.querySelector('.cards__body'), 50, '...');
             container.appendChild(article);
 
+            if (isPinned === true) {
+                article.classList.add("is-pinned");
+            }
+
             // select all the heading
-            let actualTitle = article.querySelectorAll("h3");
+            let actualTitle = article.querySelectorAll("h2");
             for (let g = 0; g < actualTitle.length; g++) {
                 // if the heading on the post contains "null", hide it
                 if (actualTitle[g].textContent === "null") {
