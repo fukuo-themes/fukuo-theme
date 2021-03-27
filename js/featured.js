@@ -17,13 +17,12 @@ let truncate = (element, limit, after) => {
     element.innerHTML = content;
 };
 
-fetch(url)
-    .then(res => res.json())
-    .then((data) => {
-        let read = data.response;
+axios.get(url)
+    .then((response) => {
+        let read = response.data.response;
         console.log(read);
 
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 4; i++) {
             let posts = read.posts[i];
             let {
                 id_string,
@@ -48,6 +47,7 @@ fetch(url)
             article.className = 'cards';
             if (type == "text") {
                 article.innerHTML = `
+                
                 <div class="cards__inner">
                     <div class="cards__info">
                         <div>
@@ -74,10 +74,19 @@ fetch(url)
                 </div>
                 `;
             } else if (type == "photo") {
+                let { photos: [
+                    {
+                        original_size: { url: photo_url },
+                    },
+                ] } = posts;
                 article.innerHTML = `
                 <figure class="cards__photo">
+                    <img src="${photo_url}">
                 </figure>
                 <div class="cards__inner">
+                    <div class="cards__date">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${date}</span>
+                    </div>
                     <div class="cards__body">
                         ${caption}
                     </div>
