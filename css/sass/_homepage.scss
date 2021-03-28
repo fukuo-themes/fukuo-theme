@@ -3,7 +3,7 @@
     margin:6.5rem auto auto auto;
 
     width: 100%;
-    max-width: 75rem;
+    max-width:80vw;
     padding-bottom: 6.5rem;
 
     @media (max-width:60rem) {
@@ -13,7 +13,7 @@
     &__sticker {
         position: absolute;
         right:3.5rem;
-        top:-3.5rem;
+        top:-4.25rem;
 
         @media (max-width:60rem) {
            right: 1rem;
@@ -21,8 +21,8 @@
         }
 
         svg {
-            width:120px;
-            height: 120px;
+            width:150px;
+            height: 150px;
 
             @media (max-width:60rem) {
                 width: 80px;
@@ -37,7 +37,9 @@
 
     &__intro {
         h1 {
-            margin-bottom: 1.15rem;
+            margin-bottom: 1.35rem;
+            font-weight: 500;
+            font-family: var(--heading-font);
 
             span {
                 position: relative;
@@ -64,7 +66,18 @@
             color:var(--secondary-color);
         }
 
-        font-family: var(--heading-font);
+        p {
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        p.created {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+
+            font-weight: 600;
+        }
     }
 
     &__featured {
@@ -86,6 +99,7 @@
             h2 {
                 margin-bottom: 0.5rem;
                 font-family: var(--heading-font);
+                font-weight: 500;
             }
 
             width: 100%;
@@ -94,6 +108,7 @@
 
         &--slider {
             margin-top: 5rem;
+        
 
             @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
                 -webkit-backdrop-filter: blur(8px);
@@ -101,26 +116,31 @@
             }
 
             background:rgba(white, 0.5);
-            padding:3.5rem 3.75rem;
+            padding:3.5rem 0 3.5rem 3.75rem;
 
-            border-radius: 15px;
-            -moz-border-radius:15px;
-            -webkit-border-radius:15px;
+            border-radius: 15px 0 0 15px;
+            -moz-border-radius:15px 0 0 15px;
+            -webkit-border-radius:15px 0 0 15px;
 
-            // padding-left: 10rem;
-            // margin-right: -10rem;
+            margin-right: -3.5rem;
 
             @media (max-width:60rem) {
                 background:transparent;
                 padding:1.5rem 0rem;
+                margin:0;
             }
         }
     }
 
     &__card {
+        height: auto;
+		display: flex !important;
+	    display: -ms-flexbox !important;
+		flex-direction: column !important;
+
         &--inner {
-            display: flex;
-            flex-direction: column;
+            height:100%;
+            
             background-color:var(--bg-card);
             overflow: hidden;
 
@@ -186,7 +206,13 @@
             grid-column: 1/-1;
 
             h2 {
+                font-size: 2rem;
+                font-weight: 500;
                 font-family: var(--heading-font);
+            }
+
+            span {
+                font-size:1.15rem;
             }
         }
 
@@ -198,6 +224,10 @@
 
     &__cta {
         margin:3.5rem 0;
+
+        > * + * {
+            margin-top: 3rem;
+        }
     }
 }
 

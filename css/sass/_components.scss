@@ -41,6 +41,10 @@
         svg {
             margin-right: 0.5rem;
         }
+
+        @media (max-width:60rem) {
+            font-size:0.85rem;
+        }
     }
 
     &__info {
@@ -109,6 +113,44 @@
             font-family: var(--heading-font);
         }
     }
+    
+    &__col--1 {
+        grid-column: 1/-1;
+    }
+
+    &__grid {
+        display: grid;
+        gap:2.5rem;
+
+        &--is-two {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &--is-three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width:60rem) {
+            grid-template-columns: 1fr;
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            margin-bottom: 0.5rem!important;
+        }
+
+       
+        .grid {
+            ul, ol {
+                list-style-type: none;
+                margin:0;
+                padding:0;
+            }
+
+            a {
+                color:inherit;
+            }
+        }
+    }
 
     &__body {
         margin-bottom: 1.5rem;
@@ -130,6 +172,10 @@
                 padding:0;
                 margin:0;
             }
+        }
+
+        p + p {
+            margin-top: 1rem;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -166,14 +212,13 @@
 }
 
 .cta {
+    position: relative;
     display: flex;
     flex-direction: column;
 
     overflow: hidden;
 
     border-radius: 20px;
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
 
     &.is--primary {
         background-color:var(--bg-card);
@@ -181,7 +226,35 @@
     }
 
     &.is--discord {
+        flex-direction: row;
+        
+        background: #7289DA;
+       
+        overflow: visible;
+        border-radius: 0;
+        padding: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
 
+        svg.discord {
+            width: 100px;
+            height: 100px;
+            padding:3rem 0 0 1rem;
+            fill:white;
+        }
+    
+
+        &::before {
+            content:'';
+            position: absolute;
+            left:0;
+            top:0;
+            display: block;
+            width:calc(100% + 20px);
+            height: calc(100% + 20px);
+            border: 15px dashed #7289DA;
+            margin:-10px -10px -10px -10px;
+        }
     }
 
     &.is--notice {
@@ -190,17 +263,27 @@
 
     &__inner {
         padding:1.5rem 2rem;
+        z-index: 2;
     }
 
     &__title, &__subtitle {
         font-family: var(--heading-font);
+        font-weight: 500;
         color:var(--heading-text);
+
+        &.is--discord {
+            color:white;
+        }
     }
 
     &__body {
         color:var(--body-text);
         margin-top: 1rem;
-        margin-bottom: 1.5rem;   
+        margin-bottom: 1.5rem;  
+        
+        &.is--discord {
+            color:white;
+        }
     }
 
     &__button {

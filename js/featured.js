@@ -43,6 +43,11 @@ axios.get(url)
                 ]
             } = posts;
 
+            const formattedDate = new Date(date);
+            // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const newDate = formattedDate.toLocaleDateString('en', options);
+
             const article = document.createElement("div");
             article.className = 'cards';
             if (type == "text") {
@@ -64,7 +69,7 @@ axios.get(url)
                         </div>
                     </div>
                     <div class="cards__date">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${date}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${newDate}</span>
                     </div>
                     <h2>${title}</h2>
                     <div class="cards__body">
@@ -85,7 +90,7 @@ axios.get(url)
                 </figure>
                 <div class="cards__inner">
                     <div class="cards__date">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${date}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> <span>${newDate}</span>
                     </div>
                     <div class="cards__body">
                         ${caption}
