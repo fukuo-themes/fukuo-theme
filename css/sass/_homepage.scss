@@ -8,6 +8,7 @@
 
     @media (max-width:60rem) {
         padding:0 1rem;
+        max-width: 75rem;
     }
 
     &__sticker {
@@ -36,6 +37,8 @@
     }
 
     &__intro {
+        color:var(--heading-text);
+
         h1 {
             margin-bottom: 1.35rem;
             font-weight: 500;
@@ -163,6 +166,7 @@
 
         .body__heading, .body__categories {
             font-family: var(--heading-font);
+            color:var(--heading-text);
         }
 
         .body__heading {
@@ -204,6 +208,7 @@
 
         &--title {
             grid-column: 1/-1;
+            color:var(--heading-text);
 
             h2 {
                 font-size: 2rem;

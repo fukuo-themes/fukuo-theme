@@ -2,9 +2,10 @@
     --heading-font:"Argent Pixel CF", monospace;
     --body-font:'Mulish', sans-serif;
     --code-font:'Oxygen Mono', monospace;
-
+    
     --bg-color:#FFFFFF;
     --bg-card:#fff;
+    --button-switch:radial-gradient(40.38% 70.38% at 50% 50%, rgba(128, 128, 128, 0.09) 0%, rgba(238, 238, 238, 0.6) 100%);
 
     --primary-color:#7FDEFF;
     --secondary-color:#FF47D6;
@@ -15,4 +16,27 @@
     --heading-text:#111;
     --body-text:#333;
 
+    --header-navigation-link: #111;
+    --footer-navigation-link:#eee;
 }
+
+body.dark-theme {
+    --hue: 210;
+  
+    --bg-color: hsl(var(--hue), 20%, 15%);
+    --body-text: hsl(var(--hue), 10%, 80%);
+    --button-switch:radial-gradient(40.38% 70.38% at 50% 50%, rgba(238, 238, 238, 0.6) 0%, rgba(214, 214, 214, 0.09) 0%);
+
+    --heading-text: hsl(0, 0%, 90%);
+  
+    // --primary-color: #6d2646;
+    --secondary-color: hsl(var(--hue), 35%, 65%);
+    --tertiary-color: hsl(var(--hue), 40%, 78%);
+
+    --is-pinned:hsl(var(--hue), 35%, 25%);
+  
+    --bg-card: hsl(var(--hue), 20%, 22%);
+
+    --header-navigation-link: hsl(var(--hue), 10%, 80%);
+    --footer-navigation-link:hsl(var(--hue), 20%, 20%);
+  }

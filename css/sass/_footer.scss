@@ -1,25 +1,28 @@
 .footer {
     margin:1rem auto auto auto;
-
     width: 100%;
-    max-width: 85vw;
+
+    background-color:var(--bg-color);
 
     &__inner {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 5rem;
         padding:3.5rem 0;
+        max-width: 80vw;
+        margin:0 auto;
+        
 
         @media (max-width:60rem) {
             grid-template-columns: 1fr;
             gap:2.5rem;
-            padding:3.5rem 1.5rem;
+            padding:3.5rem 0rem;
         }
 
         > .grid-footer {
             h2 {
                 color: var(--heading-text);
-                font-weight: 900;
+                font-weight: 500;
                 font-family: var(--heading-font);
                 margin-bottom: .75rem;
             }
@@ -59,9 +62,12 @@
                 padding:0;
                 list-style: none;
                 display: flex;
+                flex-wrap: wrap;
 
                 li {
                     margin-right: 0.75rem;
+                    color:var(--heading-text);
+
                     &:not(:last-child)::after {
                         content: "/";
                         margin-left: .5rem;
@@ -69,7 +75,7 @@
 
                     a {
                         font-weight: bold;
-                        color:inherit;
+                        color:var(--heading-text);
                         text-decoration: none;
                     }
                 }
@@ -89,14 +95,14 @@
                     width: 50%;
                     flex-grow: 1;
                     position: relative;
-                    border: 1.5px solid #fff;
+                    border: 1.5px solid var(--bg-color);
 
                     a {
                         display: block;
                         padding: .75rem 1rem;
-                        background-color: #eee;
+                        background-color: var(--footer-navigation-link);
                         font-weight: 700;
-                        color: inherit;
+                        color: var(--heading-text);
 
                         text-decoration: none;
                     }

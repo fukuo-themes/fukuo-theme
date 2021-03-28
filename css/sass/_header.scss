@@ -7,10 +7,15 @@
     padding:2.5rem 1rem;
 
     font-family: var(--heading-font);
+    color:var(--header-navigation-link);
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
         -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
+    }
+
+    @media (max-width:60rem) {
+        padding:0.5rem 1.5rem;
     }
 
     z-index: 999;
@@ -22,6 +27,10 @@
 
         max-width: 80vw;
         margin:auto;
+
+        @media (max-width:60rem) {
+            max-width: 75rem;
+        }
     }
 
     &__links {
@@ -47,7 +56,7 @@
 
         a {
             text-decoration: none;
-            color:inherit;
+            color:var(--header-navigation-link);
         }
 
         &--actived {
@@ -71,6 +80,27 @@
                 color:var(--secondary-color);
                 font-weight: bold;
             }
+        }
+    }
+    
+    .btn-dark > button {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width:45px;
+        height: 45px;
+
+        background: var(--button-switch);
+        box-shadow: none;
+        border:0;
+        padding:0.85rem;
+        border-radius: 50%;
+
+        @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
         }
     }
 }

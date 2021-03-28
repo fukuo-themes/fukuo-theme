@@ -2,6 +2,16 @@ body {
     min-height: 100vh;
 
     font-family: var(--body-font);
+    background-color:var(--bg-color);
+
+    &.blog {
+      background: radial-gradient(circle at 100% 0%, #FFA800, transparent 30%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 65%);
+      background-attachment: scroll;
+    }
+
+    &.dark-theme.blog {
+      background:var(--bg-color);
+    }
 }
 
 @font-face {
@@ -103,6 +113,56 @@ body {
 .wrapper {
   padding-bottom: 6rem;
 
+  &__blog {
+    @media (min-width:60rem) {
+      padding:0 5rem;
+    }
+
+    .posts {
+      background-color:var(--bg-card);
+      border-radius: 10px;
+      -moz-border-radisu:10px;
+
+      border:3px solid rgba(#111, 0.2);
+
+      &--heading {
+        margin-bottom: 3.75rem;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .tmblr-full {
+        margin:1.35rem 0;
+        img {
+          border-radius:10px;
+        }
+      }
+
+      &__body {
+        padding:2.5rem 3rem;
+
+        h1, h2, h3, h4, h5 {
+          margin: 1rem 0 1.38rem;
+          font-weight: 400;
+          line-height: 1.3;
+        }
+        
+        h1 {
+          margin-top: 0;
+          font-size: 2.488rem;
+        }
+        
+        h2 {font-size: 1.728rem;}
+        h3 {font-size: 1.44rem;}
+        h4 {font-size: 1.2rem;}
+        
+      }
+    }
+  }
+
   &__cta {
     position: relative;
     margin:0 auto;
@@ -120,7 +180,8 @@ body {
     max-width: 80vw;
 
     @media (max-width:60rem) {
-        padding:0 0rem;
+      padding:0 1.5rem;
+      max-width: 75rem;
     }
 
     &--heading {
@@ -132,6 +193,7 @@ body {
       justify-items: end;
 
       margin-bottom: 1.5rem!important;
+      color:var(--heading-text);
 
       @media (max-width:60rem) {
         grid-template-columns: 1fr;
@@ -156,6 +218,7 @@ body {
 
     h1, h2, h3 {
       font-family: var(--heading-font);
+      color:var(--heading-text);
       font-weight: 500;
     }
 
@@ -174,6 +237,7 @@ body {
 
     blockquote {
       font-size: 1.15rem;
+      color:var(--heading-text);
       font-family: var(--heading-font);
       padding:0 1rem;
       border-left: 10px solid #ddd;
@@ -196,7 +260,10 @@ body {
 
     @media (max-width:60rem) {
       grid-template-columns: 1fr;
-  }
+      gap:1.5rem;
+      padding:3rem 1rem;
+      max-width: 75rem;
+    }
 
     &::before {
       content:'';
@@ -206,7 +273,7 @@ body {
       margin-left: 50%;
       transform: translateX(-50%);
      
-      background: radial-gradient(circle at 100% 80%, #FFA800, transparent 30%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 150%, #c9f1ff, #c9f1ff, transparent 65%);
+      background: radial-gradient(circle at 100% 80%, #FFA800, transparent 30%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 65%);
       z-index: -1;
     }
   }

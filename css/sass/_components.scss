@@ -23,7 +23,7 @@
             padding:0.45rem 1rem;
     
             border-radius: 30px;
-            color:#111;
+            color:var(--heading-text);
             background-color:transparent;
     
             border:3px solid currentColor;
@@ -37,6 +37,7 @@
 
         font-family: var(--heading-font);
         font-size:1.15rem;
+        color:var(--heading-text);
 
         svg {
             margin-right: 0.5rem;
@@ -53,6 +54,7 @@
         justify-content: space-between;
         margin-bottom: 1.5rem;
         padding-bottom: 1.25rem;
+        color:var(--heading-text);
         border-bottom: 2px solid var(--tertiary-color);
 
         > div {
@@ -295,7 +297,7 @@
         padding:0.45rem 1rem;
 
         border-radius: 30px;
-        
+
         &--primary {
             color:#fff;
            
@@ -311,5 +313,15 @@
             background-color:var(--secondary-color);
             border:3px solid var(--secondary-color);
         }
+
+        &--disabled {
+            pointer-events: none;
+            opacity: 0.5;
+
+            background-color:#aaa;
+            border-color:#aaa;
+            color:var(--body-text);
+        }
+        
     }
 }
