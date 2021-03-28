@@ -29,7 +29,7 @@ body.dark-theme {
 
     --heading-text: hsl(0, 0%, 90%);
   
-    // --primary-color: #6d2646;
+    --primary-color: hsl(var(--hue), 37%, 70%);
     --secondary-color: hsl(var(--hue), 35%, 65%);
     --tertiary-color: hsl(var(--hue), 40%, 78%);
 

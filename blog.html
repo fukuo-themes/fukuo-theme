@@ -19,6 +19,10 @@
 <body class="blog">
 
     <div id="my-scrollbar">
+        <a class="skip-to-content-link" href="#main">
+            Skip to content
+        </a>
+
         <nav class="nav">
             <div class="nav__inner">
                 <div class="nav__logo">Logo</div>
@@ -44,13 +48,41 @@
         <!-- <div data-barba="wrapper"> 
              data-barba="container" data-barba-namespace="about"
             -->
-        <main class="wrapper">
+        <main class="wrapper" id="main">
             <div class="wrapper__inner">
                 <div class="wrapper__blog">
                     <div class="posts--heading">
                         <h1>Blog</h1>
                         <p>Showing 69 of 1994 articles</p>
+                        <form action="">
+                            <div class="form__inner">
+                                <input type="text" placeholder="What are you looking for?" name="" id="">
+                                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="butt" stroke-linejoin="bevel">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </div>
+                        </form>
                     </div>
+                    <article class="posts">
+                        <figure class="posts__photo">
+                            <img src="https://images.unsplash.com/photo-1609758118964-3126caf95f77?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80"
+                                alt="">
+                        </figure>
+                        <div class="posts__body">
+                            <h2>Bibendum hac in quis arcu, suspendisse. Amet, vitae hac lectus ultrices. Vel augue id
+                                suspendisse blandit volutpat vitae magna orci tristique.</h2>
+
+                            <p>
+                                Cursus et vitae nisl pretium nisl dictum facilisi fames. <strong>Magna sit mi pulvinar
+                                    odio imperdiet quis augue euismod</strong> sed. Ut sem purus a, elit. Pretium,
+                                elementum mauris adipiscing donec lobortis pellentesque eu. Aliquam vitae in viverra eu
+                                est rhoncus magna velit magna. Ornare facilisi nulla eu mattis eget feugiat elit aenean.
+                                Nibh eleifend posuere auctor cursus id massa nunc. Neque, duis odio amet urna eget.</p>
+                        </div>
+                    </article>
+
                     <article class="posts">
                         <div class="posts__body">
                             <h1>An example post</h1>
