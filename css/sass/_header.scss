@@ -9,10 +9,10 @@
     font-family: var(--heading-font);
     color:var(--header-navigation-link);
 
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-    }
+    // @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    //     -webkit-backdrop-filter: blur(8px);
+    //     backdrop-filter: blur(8px);
+    // }
 
     @media (max-width:60rem) {
         padding:0.5rem 1.5rem;
@@ -25,7 +25,7 @@
         align-items: center;
         justify-content: space-between;
 
-        max-width: 80vw;
+        max-width: 75vw;
         margin:auto;
 
         @media (max-width:60rem) {

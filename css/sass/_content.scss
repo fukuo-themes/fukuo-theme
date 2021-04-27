@@ -6,7 +6,7 @@ body {
 
     &.blog {
       background: radial-gradient(circle at 100% 0%, #FFA800, transparent 30%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 65%);
-      background-attachment: scroll;
+      background-attachment: fixed;
     }
 
     &.dark-theme.blog {
@@ -108,6 +108,16 @@ body {
       margin-left: 1.25rem;
     }
   }
+}
+
+::-moz-selection {
+  color: currentColor;
+  background: aliceblue;
+}
+
+::selection {
+  color: currentColor;
+  background: aliceblue;
 }
 
 .loader {
@@ -243,7 +253,7 @@ body {
     margin:0 auto;
 
     width: 100%;
-    max-width: 80vw;
+    max-width: 75vw;
 
   }
 
@@ -252,7 +262,7 @@ body {
     margin:6.5rem auto auto auto;
 
     width: 100%;
-    max-width: 80vw;
+    max-width: 75vw;
 
     @media (max-width:60rem) {
       padding:0 1.5rem;
@@ -456,6 +466,10 @@ body {
 
 .cursor {
   pointer-events: none;
+
+  @media (max-width:60rem) {
+    display: none;
+  }
   
   &__ball {
     position: fixed;

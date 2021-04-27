@@ -18,7 +18,7 @@
 
 <body>
 
-    <div class="cursor">
+    <!-- <div class="cursor">
         <div class="cursor__ball cursor__ball--big ">
             <svg height="30" width="30">
                 <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
@@ -30,7 +30,7 @@
                 <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
             </svg>
         </div>
-    </div>
+    </div> -->
 
     <div id="my-scrollbar">
         <a class="skip-to-content-link" href="#main">
@@ -78,7 +78,7 @@
                     </button>
                 </div>
                 <div class="inner_faqs-category">
-                    <div class="grid-category" tabindex="0">
+                    <a href="#" class="grid-category">
                         <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                             viewBox="0 0 24 24" aria-labelledby="bookOpenedIconTitle bookOpenedIconDesc"
                             stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter"
@@ -92,8 +92,8 @@
                             <path stroke-linecap="round" d="M12 6v14" />
                         </svg>
                         <h2>Installation</h2>
-                    </div>
-                    <div class="grid-category" tabindex="0">
+                    </a>
+                    <a href="#" class="grid-category">
                         <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                             viewBox="0 0 24 24" aria-labelledby="lightBulbIconTitle lightBulbIconDesc"
                             stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter"
@@ -104,8 +104,8 @@
                                 d="M16 12C15.3333333 12.6666667 15 14 15 16L15 17 9 17 9 16C9 14 8.66666667 12.6666667 8 12 5.6739597 9.6739597 5.41421356 6.10050506 7.75735931 3.75735931 10.1005051 1.41421356 13.8994949 1.41421356 16.2426407 3.75735931 18.5857864 6.10050506 18.4068484 9.59315157 16 12zM10 21L14 21" />
                         </svg>
                         <h2>General</h2>
-                    </div>
-                    <div class="grid-category" tabindex="0">
+                    </a>
+                    <a href="#" class="grid-category">
                         <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                             viewBox="0 0 24 24" aria-labelledby="editIconTitle editIconDesc" stroke="currentColor"
                             stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none"
@@ -118,8 +118,8 @@
                                 d="M18.4142136 4.41421356L19.5857864 5.58578644C20.366835 6.36683502 20.366835 7.63316498 19.5857864 8.41421356L8 20 4 20 4 16 15.5857864 4.41421356C16.366835 3.63316498 17.633165 3.63316498 18.4142136 4.41421356zM14 6L18 10" />
                         </svg>
                         <h2>Editing</h2>
-                    </div>
-                    <div class="grid-category" tabindex="0">
+                    </a>
+                    <a href="#" class="grid-category">
                         <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                             viewBox="0 0 24 24" aria-labelledby="glassesIconTitle glassesIconDesc" stroke="currentColor"
                             stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none"
@@ -134,7 +134,7 @@
                             <circle cx="17" cy="12" r="3" />
                         </svg>
                         <h2>Troubleshooting</h2>
-                    </div>
+                    </a>
                 </div>
                 <div class="wrapper__inner--contact">
                     <div class="wrapper__grid wrapper__grid--is-two is-transparent">
@@ -218,6 +218,35 @@
 
         </main>
         <!-- </div> -->
+
+        <nav class="bottom">
+            <ul class="bottom__inner">
+                <li><a href="/"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15"
+                            height="15">
+                            <path
+                                d="M7.5.5l.325-.38a.5.5 0 00-.65 0L7.5.5zm-7 6l-.325-.38L0 6.27v.23h.5zm5 8v.5a.5.5 0 00.5-.5h-.5zm4 0H9a.5.5 0 00.5.5v-.5zm5-8h.5v-.23l-.175-.15-.325.38zM1.5 15h4v-1h-4v1zm13.325-8.88l-7-6-.65.76 7 6 .65-.76zm-7.65-6l-7 6 .65.76 7-6-.65-.76zM6 14.5v-3H5v3h1zm3-3v3h1v-3H9zm.5 3.5h4v-1h-4v1zm5.5-1.5v-7h-1v7h1zm-15-7v7h1v-7H0zM7.5 10A1.5 1.5 0 019 11.5h1A2.5 2.5 0 007.5 9v1zm0-1A2.5 2.5 0 005 11.5h1A1.5 1.5 0 017.5 10V9zm6 6a1.5 1.5 0 001.5-1.5h-1a.5.5 0 01-.5.5v1zm-12-1a.5.5 0 01-.5-.5H0A1.5 1.5 0 001.5 15v-1z"
+                                fill="currentColor"></path>
+                        </svg><span>Home</span></a></li>
+                <li><a href="/about"><svg viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="15"
+                            height="15">
+                            <path
+                                d="M6.5 11.5c.245.107.732.5 1 .5s.755-.393 1-.5m-4-5L6 8m4.5-1.5L9 8M7.5.5C3.873.5 1.862 2.461 1.5 5c-.364 2.345.139 4.557 1.5 6.5.655.958 1.515 1.886 2.5 2.5 1.296.777 2.704.777 4 0 .985-.614 1.845-1.542 2.5-2.5 1.356-1.946 1.858-4.156 1.5-6.5-.362-2.54-2.373-4.5-6-4.5z"
+                                stroke="currentColor" stroke-linecap="square" stroke-linejoin="round"></path>
+                        </svg><span>About</span></a></li>
+                <li><a href="/blog"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15"
+                            height="15">
+                            <path
+                                d="M10.5.5l.277-.416L10.651 0H10.5v.5zm3 2h.5v-.268l-.223-.148-.277.416zm-1 9.5h-8v1h8v-1zM4 11.5v-10H3v10h1zM4.5 1h6V0h-6v1zM13 2.5v9h1v-9h-1zM10.223.916l3 2 .554-.832-3-2-.554.832zM4.5 12a.5.5 0 01-.5-.5H3A1.5 1.5 0 004.5 13v-1zm8 1a1.5 1.5 0 001.5-1.5h-1a.5.5 0 01-.5.5v1zM4 1.5a.5.5 0 01.5-.5V0A1.5 1.5 0 003 1.5h1zm-3 2v10h1v-10H1zM2.5 15h8v-1h-8v1zm0-12h1V2h-1v1zM12 13.5v-1h-1v1h1zM10.5 15a1.5 1.5 0 001.5-1.5h-1a.5.5 0 01-.5.5v1zM1 13.5A1.5 1.5 0 002.5 15v-1a.5.5 0 01-.5-.5H1zm1-10a.5.5 0 01.5-.5V2A1.5 1.5 0 001 3.5h1z"
+                                fill="currentColor"></path>
+                        </svg><span>Blog</span></a></li>
+                <li><a href="#"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15"
+                            height="15">
+                            <path
+                                d="M3 7.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 0a.5.5 0 11-1 0 .5.5 0 011 0zm5 0a.5.5 0 11-1 0 .5.5 0 011 0z"
+                                stroke="currentColor"></path>
+                        </svg><span>Others</span></a></li>
+            </ul>
+        </nav>
 
         <footer class="footer" role="contentinfo">
             <div class="footer__inner">

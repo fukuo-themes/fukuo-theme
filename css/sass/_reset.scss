@@ -77,3 +77,10 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+
+@media (max-width:60rem) {
+  html {
+    font-size:14px;
+  }
+}

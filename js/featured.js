@@ -52,20 +52,12 @@ axios.get(url)
             article.className = 'cards';
             if (type == "text") {
                 article.innerHTML = `
-                
+                <div class="cards__pinned">${is_pinned === true ? '<span>Pinned post</span>' : null}</div>
                 <div class="cards__inner">
                     <div class="cards__info">
                         <div>
                             <img src="https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/96" alt="${username}">
                             <span>Posted by <a href="https://${username}.tumblr.com/">${username}</a></span>
-                        </div>
-                        <div>
-                            <ul>
-                                <li class="like">
-                                    <a href="" aria-label="Like"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
-                                </li>
-                                <li><a href="https://www.tumblr.com/reblog/${username}/${id_string}/${reblog_key}" aria-label="Reblog"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></a></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="cards__date">
@@ -78,6 +70,8 @@ axios.get(url)
                     <a class="cards__button" href="${post_url}" target="_blank">Keep reading <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
                 </div>
                 `;
+
+                truncate(article.querySelector('.cards__body'), 100, '...');
             } else if (type == "photo") {
                 let { photos: [
                     {
@@ -98,9 +92,11 @@ axios.get(url)
                     <a class="cards__button" href="${post_url}" target="_blank">Keep reading <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
                 </div>
                 `;
+
+                truncate(article.querySelector('.cards__body'), 50, '...');
             }
 
-            truncate(article.querySelector('.cards__body'), 50, '...');
+
             container.appendChild(article);
 
             if (is_pinned === true) {
