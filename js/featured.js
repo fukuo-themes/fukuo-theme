@@ -1,6 +1,6 @@
 const username = "fukuo";
 const tags = "blog";
-const apiKey = "EygUfFKmzfMHjUFCtqLwa3K6i8SGLJsiiozHyPEWNFfRrb6O4W";
+const apiKey = "aFDCUT4lAP4YDwGsS0kaHkywXud3DEkSZ8GlcqtOFJPMGwLp6W";
 const url = `https://api.tumblr.com/v2/blog/${username}.tumblr.com/posts/?api_key=${apiKey}&tag=${tags}`;
 const container = document.getElementsByClassName('homepage__blog')[0];
 
@@ -75,7 +75,7 @@ axios.get(url)
                     <div class="cards__body">
                         ${body}
                     </div>
-                    <a class="cards__button" href="${post_url}" target="_blank">Read more <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    <a class="cards__button" href="${post_url}" target="_blank">Keep reading <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
                 </div>
                 `;
             } else if (type == "photo") {
@@ -95,7 +95,7 @@ axios.get(url)
                     <div class="cards__body">
                         ${caption}
                     </div>
-                    <a class="cards__button" href="${post_url}" target="_blank">Read more <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    <a class="cards__button" href="${post_url}" target="_blank">Keep reading <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
                 </div>
                 `;
             }

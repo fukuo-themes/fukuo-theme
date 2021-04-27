@@ -147,6 +147,8 @@
                 background:transparent;
                 padding:1.5rem 0rem;
                 margin:0;
+                -webkit-backdrop-filter: blur(0px);
+                backdrop-filter: blur(0px);
             }
         }
     }
@@ -247,7 +249,21 @@
     }
 
     &__cta {
+        position: relative;
         margin:3.5rem 0;
+        &::before {
+            content:'';
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            filter: blur(100px);
+           
+            background: radial-gradient(circle at 100% 80%, #FFA800, transparent 30%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 35%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 65%);
+            z-index: -1;
+            
+          }
 
         > * + * {
             margin-top: 3rem;

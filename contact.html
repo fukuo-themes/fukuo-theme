@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Oxygen+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+</head>
+
+<body>
+
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <div id="my-scrollbar">
+        <a class="skip-to-content-link" href="#main">
+            Skip to content
+        </a>
+
+        <nav class="nav">
+            <div class="nav__inner">
+                <div class="nav__logo">Logo</div>
+                <ul class="nav__links" role="list">
+                    <li class="nav__menu"><a href="/index.html">Home</a></li>
+                    <li class="nav__menu"><a href="/about.html">About</a></li>
+                    <li class="nav__menu"><a href="/blog.html">Blog</a></li>
+                    <li class="nav__menu"><a href="/contact.html">Message</a></li>
+                    <li class="nav__menu"><a href="/commissions">Commision</a></li>
+                    <li class="nav__menu"><a href="/tagged/themes">Themes</a></li>
+                    <li class="btn-dark">
+                        <button aria-label="Dark mode"><svg viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                                <path
+                                    d="M7.5 1.5v-1m0 13.99v-.998m6-5.997h1m-13 0h-1m2-4.996l-1-1m12 0l-1 1m-10 9.993l-1 1m12 0l-1-1m-2-4.997a2.999 2.999 0 01-3 2.998 2.999 2.999 0 113-2.998z"
+                                    stroke="currentColor" stroke-linecap="square"></path>
+                            </svg></button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- <div data-barba="wrapper"> 
+             data-barba="container" data-barba-namespace="about"
+            -->
+        <main class="wrapper" id="main">
+            <div class="wrapper__inner">
+                <h1>Frequently Asked Question</h1>
+                <p>choose a category to quickly find the question you need.
+                </p>
+                <div class="form__inner">
+                    <input type="text" placeholder="Search your keyword here..." name="" id="">
+                    <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="butt" stroke-linejoin="bevel">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="inner_faqs-category">
+                    <div class="grid-category" tabindex="0">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                            viewBox="0 0 24 24" aria-labelledby="bookOpenedIconTitle bookOpenedIconDesc"
+                            stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter"
+                            fill="none" color="currentColor">
+                            <title id="bookOpenedIconTitle">Book</title>
+                            <desc id="bookOpenedIconDesc">
+                                Icon of a book opened flat with two pages visible from above
+                            </desc>
+                            <path
+                                d="M12 6s-2-2-4-2-5 2-5 2v14s3-2 5-2 4 2 4 2c1.333-1.333 2.667-2 4-2 1.333 0 3 .667 5 2V6c-2-1.333-3.667-2-5-2-1.333 0-2.667.667-4 2z" />
+                            <path stroke-linecap="round" d="M12 6v14" />
+                        </svg>
+                        <h2>Installation</h2>
+                    </div>
+                    <div class="grid-category" tabindex="0">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                            viewBox="0 0 24 24" aria-labelledby="lightBulbIconTitle lightBulbIconDesc"
+                            stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter"
+                            fill="none" color="currentColor">
+                            <title id="lightBulbIconTitle">Light Bulb</title>
+                            <desc id="lightBulbIconDesc">Icon of a light bulb</desc>
+                            <path
+                                d="M16 12C15.3333333 12.6666667 15 14 15 16L15 17 9 17 9 16C9 14 8.66666667 12.6666667 8 12 5.6739597 9.6739597 5.41421356 6.10050506 7.75735931 3.75735931 10.1005051 1.41421356 13.8994949 1.41421356 16.2426407 3.75735931 18.5857864 6.10050506 18.4068484 9.59315157 16 12zM10 21L14 21" />
+                        </svg>
+                        <h2>General</h2>
+                    </div>
+                    <div class="grid-category" tabindex="0">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                            viewBox="0 0 24 24" aria-labelledby="editIconTitle editIconDesc" stroke="currentColor"
+                            stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none"
+                            color="currentColor">
+                            <title id="editIconTitle">Edit</title>
+                            <desc id="editIconDesc">
+                                Icon of a pencil with a rubber on top
+                            </desc>
+                            <path
+                                d="M18.4142136 4.41421356L19.5857864 5.58578644C20.366835 6.36683502 20.366835 7.63316498 19.5857864 8.41421356L8 20 4 20 4 16 15.5857864 4.41421356C16.366835 3.63316498 17.633165 3.63316498 18.4142136 4.41421356zM14 6L18 10" />
+                        </svg>
+                        <h2>Editing</h2>
+                    </div>
+                    <div class="grid-category" tabindex="0">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                            viewBox="0 0 24 24" aria-labelledby="glassesIconTitle glassesIconDesc" stroke="currentColor"
+                            stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none"
+                            color="currentColor">
+                            <title id="glassesIconTitle">Glasses</title>
+                            <desc id="glassesIconDesc">
+                                Icon of a pair of circular glasses
+                            </desc>
+                            <path stroke-linecap="round" d="M14 12c-.597-.667-1.264-1-2-1s-1.403.333-2 1" />
+                            <path d="M20 12h2M2 12h2" />
+                            <circle cx="7" cy="12" r="3" />
+                            <circle cx="17" cy="12" r="3" />
+                        </svg>
+                        <h2>Troubleshooting</h2>
+                    </div>
+                </div>
+                <div class="wrapper__inner--contact">
+                    <div class="wrapper__grid wrapper__grid--is-two is-transparent">
+                        <div class="cards__col--1 sticky">
+                            <h2 style="color:var(--secondary-color)">Installation</h2>
+                        </div>
+                        <article>
+                            <h3>How do I install a theme?</h3>
+                            <p>Starting as of now, my themes will be uploaded on the Theme Garden which is easy to
+                                install. Just click the install button and you're done. As for installing a third-party
+                                theme, all you have to do is copy-paste the code I have provided in my theme preview. It
+                                will leads you to the pastebin/github.
+                            </p>
+                        </article>
+                        <article>
+                            <h3>How do I install a custom page?
+                            </h3>
+                            <p>To create a page with a custom layout:
+                            </p>
+                            <ol>
+                                <li>
+                                    Click “Add a page” in the Pages section of your Customize menu.
+                                </li>
+                                <li>Select "Custom Layout" from the dropdown menu.</li>
+                                <li>Insert custom code into the HTML Editor.</li>
+                                <li>
+                                    Type a page URL after the slash (/). For example, an about page
+                                    could be <code>/about</code> and a contact page could be
+                                    <code>/contact.</code>
+                                </li>
+                                <li>Add a title in the Page Title field.</li>
+                                <li>Enable "Show a link to this page." then click "Save"</li>
+                            </ol>
+                        </article>
+                    </div>
+
+                    <div class="wrapper__grid wrapper__grid--is-two is-transparent">
+                        <div class="cards__col--1 sticky">
+                            <h2 style="color:var(--secondary-color)">General</h2>
+                        </div>
+                        <article>
+                            <h3>Where's your old themes? I can't seem to find them on your blog...
+                            </h3>
+                            <p>I have decided to delete them because they are outdated and I don't
+                                have the want to update the theme. As time goes, my view of "Tumblr
+                                themes" changed and I don't want to provide the ugly design and not
+                                functional for you. Fortunately,
+                                <a href="https://theme-hunter.tumblr.com/">Theme Hunter</a> archived
+                                my old ones so if you still want to use them, go ahead (but I don't provide a support
+                                for them).
+                            </p>
+                        </article>
+                        <article>
+                            <h3>Can you please help me? I am using someone else's theme...
+                            </h3>
+                            <p>No. Please keep in mind that I do not help with other people's theme. Just ask the owner
+                                of the theme instead of asking me.
+                            </p>
+                            <ol>
+                        </article>
+                        <article>
+                            <h3>How did you learn to code?
+                            </h3>
+                            <p> I am entirely self-taught. Back then in 2011, I self-learned HTML and CSS when I can't
+                                find the Tumblr theme that suits my needs so I was playing around with the code and got
+                                familiar with it. In 2014-2015, I decided to take a course in Javascript and Python to
+                                improve my skills in programming language.
+                                Some of my resources are
+                                <a href="https://www.w3schools.com/">w3schools</a>,
+                                <a href="https://css-tricks.com/">CSS Tricks</a>,
+                                <a href="https://codeacademy.com">Codeacademy</a> and Tumblr theme
+                                documentation.
+                            </p>
+                            <ol>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+        <!-- </div> -->
+
+        <footer class="footer" role="contentinfo">
+            <div class="footer__inner">
+                <div class="grid-footer">
+                    <h2>Quick Links</h2>
+                    <ul class="links">
+                        <li><a href="/about">About this blog</a></li>
+                        <li><a href="/tagged/resources">Resources</a></li>
+                        <li><a href="/tagged/tutorials">Tutorials</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li>
+                            <a href="/tagged/answered"><span class="ec ec-e-mail"></span> Answered posts</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-footer">
+                    <h2>Support me</h2>
+                    <a class="ko-fi-btn" tabindex="0" href="https://ko-fi.com/fukuoka"><svg width="24" id="Layer_1"
+                            data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.69 47.71">
+                            <path class="cls-1"
+                                d="M23.62,11.22A17.39,17.39,0,1,0,41,28.6,17.41,17.41,0,0,0,23.62,11.22Zm0.22,27.24-0.45.25-0.45-.25c-0.4-.22-9.8-5.36-9.8-11.25,0-3.82,2.53-6.82,5.76-6.82a6.29,6.29,0,0,1,4.46,2.08,6.38,6.38,0,0,1,4.52-2.12c3.24,0,5.78,3,5.78,6.85C33.64,33.09,24.23,38.24,23.83,38.45Z"
+                                transform="translate(0 -4.43)"></path>
+                            <path class="cls-1"
+                                d="M56.69,28.82c0-2.6-2-3-3.38-3.05H47.78C47,17.37,41.78,10,33.27,6.35a23.87,23.87,0,1,0,9.89,36,22.47,22.47,0,0,0,4.33-10.72l6.31,0C55.21,31.66,56.69,31.17,56.69,28.82ZM15.87,46.55a19.93,19.93,0,1,1,24.73-7.4A19.94,19.94,0,0,1,15.87,46.55Z"
+                                transform="translate(0 -4.43)"></path>
+                        </svg>
+                        Buy me a coffee?</a>
+                    <p> If you have a cash sitting around in your pocket, would you consider
+                        supporting me by buying more coffee? I would very much appreciate it!</p>
+                </div>
+                <div class="grid-footer">
+                    <h2>Copyright</h2>
+                    <p>Copyright © FUKUO 2012–2021. All rights reserved.</p>
+                    <ul>
+                        <li>
+                            <a href="/legal"><span class="ec ec-notebook-with-decorative-cover"></span>
+                                Legal Page</a>
+                        </li>
+                        <li><a href="/legal">Terms of Use</a></li>
+                        <li><a href="/credits">Credits</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.0/dist/smooth-scrollbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/cursor.js"></script>
+    <!-- <script src="js/blog.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
+    <script src="https://unpkg.com/@barba/core"></script>
+
+    <script src="/js/barba.js"></script> -->
+
+
+</body>
+
+</html>

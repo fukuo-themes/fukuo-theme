@@ -1,6 +1,6 @@
 const username = "fukuo";
 const tags = "posts";
-const apiKey = "EygUfFKmzfMHjUFCtqLwa3K6i8SGLJsiiozHyPEWNFfRrb6O4W";
+const apiKey = "aFDCUT4lAP4YDwGsS0kaHkywXud3DEkSZ8GlcqtOFJPMGwLp6W";
 const container = document.querySelector('.wrapper__blog--inner');
 
 const load_more_container = document.createElement("div");
