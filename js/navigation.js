@@ -34,3 +34,11 @@ btn_dark.addEventListener("click", function (e) {
 
     localStorage.setItem("theme", theme);
 });
+
+const bottomNav = document.querySelector(".bottom__inner .more");
+bottomNav.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    this.classList.toggle("is-active");
+    document.querySelector(".bottom__more").classList.toggle("is-shown");
+});

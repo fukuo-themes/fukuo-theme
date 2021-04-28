@@ -117,13 +117,70 @@
     left:0;
     bottom:0;
     width: 100%;
-    background-color:var(--bg-color);
     z-index: 9;
-
-    border-top:1px solid rgba(#000, 0.15);
 
     @media (min-width:60rem) {
         display: none;
+    }
+
+    &__more {
+        height:0;
+        opacity: 0;
+        visibility: hidden;
+
+        background:var(--bg-color);
+
+        &--inner {
+            padding:2.5rem 2rem;
+
+            h3 {
+                font-family: var(--code-font);
+                font-size:0.99rem;
+                border-bottom:1px solid #e7e7e7;
+
+                color:var(--heading-text);
+
+                padding-bottom: 1rem;
+                margin-bottom: 1.5rem;
+
+                & ~ ul {
+                    margin-bottom:2.5rem;
+                }
+            }
+
+            ul {
+                list-style: none;
+                margin:0;
+                padding:0;
+
+                li {
+                    & + li {
+                        margin-top: 0.75rem;
+                    }
+                    a {
+                        width: 100%;
+                        display: inline-flex;
+                        align-items: center;
+
+                        color:var(--header-navigation-link);
+                        font-size: 1.05rem;
+                        text-decoration: none;
+
+                        img {
+                            margin-right: 0.75rem;
+                            height:24px;
+                            border-radius:50%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.is-shown {
+            height: calc(100vh - 65px);
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__inner {
@@ -133,9 +190,18 @@
         justify-content: space-between;
         margin:0;
         padding:0;
+        background-color:var(--bg-color);
+        border-top:1px solid rgba(#000, 0.15);
 
         li {
             flex:1 1 0%;
+            &.more.is-active {
+                a {
+                    background-color:var(--secondary-color);
+                    color:var(--bg-card);
+                }
+            }
+
             &.nav__menu--actived {
                 &::before {
                     display: none;
