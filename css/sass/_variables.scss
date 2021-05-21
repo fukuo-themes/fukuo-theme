@@ -11,6 +11,8 @@
     --primary-color:#7FDEFF;
     --secondary-color:#FF47D6;
     --tertiary-color:#FF8850;
+    --accent-color:#FFD2C5;
+    --notice:#eee;
 
     --is-pinned:#FFD2C5;
 
@@ -33,6 +35,8 @@ body.dark-theme {
     --primary-color: hsl(var(--hue), 37%, 70%);
     --secondary-color: hsl(var(--hue), 35%, 65%);
     --tertiary-color: hsl(var(--hue), 40%, 78%);
+    --accent-color:var(--bg-card);
+    --notice:var(--bg-card);
 
     --is-pinned:hsl(var(--hue), 35%, 25%);
   

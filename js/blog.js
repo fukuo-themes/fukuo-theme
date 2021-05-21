@@ -73,12 +73,11 @@ const loadBlog = () => {
                     question,
                     answer,
                     caption,
-                    trail: [
-                        {
-                            blog: { name: username },
-                        },
-                    ]
+                    player,
+                    trail: [{ blog: { name: username } }]
                 } = posts;
+
+                console.log(player);
 
                 const formattedDate = new Date(date);
                 // const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -104,7 +103,6 @@ const loadBlog = () => {
                 } else if (type == "video") {
                     article.innerHTML = `
                     <div class="posts__body">
-                            <iframe width=\"500\" height=\"281\"  id=\"youtube_iframe\" src=\"${permalink_url}" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
 
                             ${summary}
                     </div>`;
