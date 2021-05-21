@@ -433,6 +433,15 @@ body {
         border-radius: 16px;
         overflow: hidden;
 
+        &__note {
+          border-top:1px solid rgba(#111, 0.2);
+          padding:0.85rem 1.25rem;
+          grid-column: 1/-1;
+
+          background-color:#FBCFE8;
+          color:#9D174D;
+        }
+
         .grid-process {
           padding:2rem 1.5rem;
           text-align: center;
@@ -448,7 +457,7 @@ body {
           }
 
           @media (max-width:60rem) {
-            &:last-child {
+            &:nth-last-child(-n+2) {
               border-left: 0;
               border-top:1px solid rgba(#111, 0.25);;
               grid-column: 1/-1;
@@ -665,8 +674,9 @@ body {
   }
 
   &__fill {
+    margin-bottom: -6rem;
     padding:5rem 0rem;
-    background: rgba(255, 210, 197, 0.3);
+    background-color: var(--footer-navigation-link);
 
     .inner_form-fill {
       max-width: 80vw;
@@ -705,7 +715,7 @@ body {
     .alternative-form {
       padding: 0rem 2rem;
       font-family: var(--heading-font);
-      font-weight: 900;
+      font-weight: 500;
       font-size: 2.5rem;
       color: var(--heading-text);
       max-width: calc(80vw - 0rem);
@@ -720,6 +730,15 @@ body {
         font-size: 1.35rem;
         font-weight: 900;
         margin-top: 1.25rem;
+
+        p + p {
+          margin-top:0.45rem;
+        }
+
+        span {
+          border-bottom: 3px solid;
+          background-color:var(--accent-color)
+        }
       }
 
       a {
@@ -729,20 +748,19 @@ body {
 
     .grid-form {
       position: relative;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 28rem auto;
 
       @media (max-width:60rem) {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
       .grid_inner-form {
         padding:2rem;
+
+        h2 {
+          margin-bottom: 0.5rem;
+        }
 
         button[type="submit"] {
           padding: 1.15rem 1.95rem;
@@ -765,7 +783,13 @@ body {
           width: 100%;
           padding: 1rem 1.8rem;
           border-radius: 15px;
-          border: 2px solid rgba(#111, 0.15);
+          border: 2px solid rgba(#777, 0.25);
+          background-color:var(--bg-card);
+          color:var(--heading-text);
+
+          &::placeholder {
+            color:var(--body-text);
+          }
         }
 
         input[type="checkbox"] {
@@ -851,20 +875,11 @@ body {
         }
 
         &:first-child {
-          -webkit-box-flex: 35%;
-          -ms-flex: 35%;
-          flex: 35%;
           color:var(--body-text);
 
           @media (max-width:60rem) {
             padding:0rem 2rem;
           }
-        }
-
-        &:last-child {
-          -webkit-box-flex: 65%;
-          -ms-flex: 65%;
-          flex: 65%;
         }
       }
     }

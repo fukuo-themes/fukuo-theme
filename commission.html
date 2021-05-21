@@ -70,7 +70,7 @@
                                 <li><a href="#tab-6">Please keep in mind that...</a></li>
                             </ol>
                             <h2>Commission status</h2>
-                            <span class="online" style="display:inline-block;background-color:#6FF184;">Currently
+                            <span class="online" style="display:inline-block;background-color:#72f187;">Currently
                                 available ∙ 2 slots</span>
                             <!--<span class="online" style="display:inline-block;">Available: accepts 2 slots</span>-->
                             <br>
@@ -151,6 +151,10 @@
                                         </path>
                                     </svg>
                                     <h3>You receive the theme</h3>
+                                </div>
+                                <div class="process__note">
+                                    *The process is not as simple as this but you get a gist.
+                                    <span class="ec ec-grinning"></span>
                                 </div>
                             </div>
                             <div
@@ -508,9 +512,13 @@
                 <span class="ec ec-v"></span>
 
                 <h5 style="color:var(--color-black)">
-                    Please read: Also, please send me a confirmation email with a subject:
-                    <span>"Fukuo's Commission / your name"</span> since oftentimes I don't
-                    receive the notification on my email
+                    <p>Please read: Also, please send me a confirmation email with a subject:
+                        <span>"Fukuo's Commission / your name"</span> since oftentimes I don't
+                        receive the notification on my email.
+                    </p>
+                    <p>Or you can contact me directly on my Discord:
+                        <span>fukuo#0004</span>
+                    </p>
                 </h5>
             </div>
         </section>
@@ -520,12 +528,26 @@
     <nav class="bottom">
         <div class="bottom__more">
             <div class="bottom__more--inner">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi neque eligendi nesciunt aut officiis!
-                Numquam obcaecati quasi quae blanditiis, asperiores eius perferendis ducimus facere corrupti
-                suscipit
-                voluptatum dignissimos enim magni sit harum maiores adipisci. Est, magnam ratione maiores tempora
-                illo
-                unde doloribus totam minima quo et velit ducimus similique corrupti.
+                <h3>Main links</h3>
+                <ul>
+                    <li><a href="/commissions">Commission</a></li>
+                    <li><a href="/contact">Message</a></li>
+                    <li><a href="#">Themes</a></li>
+                </ul>
+
+                <h3>Other links</h3>
+                <ul>
+                    <li><a href="/legal">Legal</a></li>
+                    <li><a href="/credits">Credits</a></li>
+                </ul>
+
+                <h3>Affiliates</h3>
+                <ul>
+                    <li><a href="#"><img src="https://api.tumblr.com/v2/blog/codingcabin.tumblr.com/avatar/512" alt="">
+                            Coding Cabin</a></li>
+                    <li><a href="#"><img src="https://api.tumblr.com/v2/blog/theme-hunter.tumblr.com/avatar/512" alt="">
+                            Theme Hunter</a></li>
+                </ul>
             </div>
         </div>
         <ul class="bottom__inner">
@@ -547,7 +569,7 @@
                             d="M10.5.5l.277-.416L10.651 0H10.5v.5zm3 2h.5v-.268l-.223-.148-.277.416zm-1 9.5h-8v1h8v-1zM4 11.5v-10H3v10h1zM4.5 1h6V0h-6v1zM13 2.5v9h1v-9h-1zM10.223.916l3 2 .554-.832-3-2-.554.832zM4.5 12a.5.5 0 01-.5-.5H3A1.5 1.5 0 004.5 13v-1zm8 1a1.5 1.5 0 001.5-1.5h-1a.5.5 0 01-.5.5v1zM4 1.5a.5.5 0 01.5-.5V0A1.5 1.5 0 003 1.5h1zm-3 2v10h1v-10H1zM2.5 15h8v-1h-8v1zm0-12h1V2h-1v1zM12 13.5v-1h-1v1h1zM10.5 15a1.5 1.5 0 001.5-1.5h-1a.5.5 0 01-.5.5v1zM1 13.5A1.5 1.5 0 002.5 15v-1a.5.5 0 01-.5-.5H1zm1-10a.5.5 0 01.5-.5V2A1.5 1.5 0 001 3.5h1z"
                             fill="currentColor"></path>
                     </svg><span>Blog</span></a></li>
-            <li class="more"> <a href="#"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+            <li class="more"><a href="#"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
                         width="15" height="15">
                         <path
                             d="M3 7.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 0a.5.5 0 11-1 0 .5.5 0 011 0zm5 0a.5.5 0 11-1 0 .5.5 0 011 0z"
@@ -555,6 +577,7 @@
                     </svg><span>Others</span></a></li>
         </ul>
     </nav>
+
 
     <footer class="footer" role="contentinfo">
         <div class="footer__inner">
@@ -627,6 +650,41 @@
                     });
                 };
             });
+
+        const inputEmail = document.querySelector("#email");
+        const inputURL = document.querySelector("#tumblr_url");
+        const buttonSubmit = document.querySelector(".btn-submit");
+        buttonSubmit.addEventListener("click", function () {
+            if (inputEmail.value === "" || inputEmail.value == null) {
+                this.innerHTML = "Submit the form";
+            } else if (inputURL.value === "" || inputURL.value == null) {
+            } else {
+                this.innerHTML = "Please wait for a moment...";
+            }
+        });
+
+        let inputs = document.querySelectorAll(".inputfile");
+        Array.prototype.forEach.call(inputs, function (input) {
+            let label = input.nextElementSibling,
+                labelVal = label.innerHTML;
+
+            input.addEventListener("change", function (e) {
+                let fileName = "";
+                if (this.files && this.files.length > 1) {
+                    fileName = (
+                        this.getAttribute("data-multiple-caption") || ""
+                    ).replace("", this.files.length);
+                } else {
+                    fileName = e.target.value.split("\\").pop();
+                }
+
+                if (fileName) {
+                    label.querySelector("b").innerHTML = fileName;
+                } else {
+                    label.innerHTML = labelVal;
+                }
+            });
+        });
     </script>
 
 
