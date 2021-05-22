@@ -119,13 +119,13 @@ body {
 }
 
 ::-moz-selection {
-  color: currentColor;
-  background: aliceblue;
+  color:rgb(0, 28, 53);
+  background: rgb(152, 197, 236);
 }
 
 ::selection {
-  color: currentColor;
-  background: aliceblue;
+  color:rgb(0, 28, 53);
+  background: rgb(152, 197, 236);
 }
 
 .loader {
@@ -284,6 +284,16 @@ body {
     position: relative;
     padding-bottom: 5rem;
 
+    .paypal {
+      color:#00457C;
+      font-weight: bold;
+
+      svg {
+        color:currentColor;
+        fill:currentColor;
+      }
+    }
+
     &::before {
       content:'';
       position: absolute;
@@ -297,7 +307,6 @@ body {
      
       background: radial-gradient(circle at 100% 80%, #FFA800, transparent 10%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 45%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 25%);
       z-index: -1;
-      
     }
 
     ul {
@@ -673,6 +682,48 @@ body {
     }
   }
 
+  &__portfolio {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:1.5rem;
+      
+      margin:0;
+      padding:0;
+
+      list-style: none;
+
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "";
+    
+          display: block;
+          width:100%;
+          height: 3px;
+
+          background-color: var(--heading-text);
+        }
+
+        a {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+
+          font-size:1.75rem;
+
+          font-family: var(--heading-font);
+
+          text-decoration: none;
+          color:var(--heading-text);
+        }
+      }
+    }
+  }
+
   &__fill {
     margin-bottom: -6rem;
     padding:5rem 0rem;
@@ -790,6 +841,42 @@ body {
           &::placeholder {
             color:var(--body-text);
           }
+        }
+
+        select {
+          background-image:
+          linear-gradient(45deg, transparent 50%, gray 50%),
+          linear-gradient(135deg, gray 50%, transparent 50%),
+          radial-gradient(#ddd 70%, transparent 72%);
+          background-position:
+          calc(100% - 26px) calc(1em + 10px),
+          calc(100% - 22px) calc(1em + 10px),
+          calc(100% - 0.95em) 0.95em;
+          background-size:
+          5px 5px,
+          5px 5px,
+          1.5em 1.5em;
+          background-repeat: no-repeat;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+
+          &:focus {
+            background-image:
+            linear-gradient(45deg, white 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, white 50%),
+            radial-gradient(gray 70%, transparent 72%);
+            background-position:
+            calc(100% - 22px) calc(1em + 8px),
+            calc(100% - 27px) calc(1em + 8px),
+            calc(100% - 0.95em) 0.95em;
+             background-size:
+            5px 5px,
+            5px 5px,
+            1.5em 1.5em;
+            background-repeat: no-repeat;
+            border-color: green;
+            outline: 0;
+            }
         }
 
         input[type="checkbox"] {
