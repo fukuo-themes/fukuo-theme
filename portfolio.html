@@ -49,67 +49,60 @@
     <main class="wrapper" id="main">
         <div class="wrapper__inner">
             <div class="wrapper__portfolio">
-                <ul>
-                    <li class="thumbnail-item disabled">
-                        <a href="#"><span><span class="ec ec-musical-note"></span> Music in anime</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-microphone"></span> Hyungwonho</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-peach"></span> Kaoyi</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-art"></span> Lucia</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-sparkling-heart"></span> Infinite Hoya</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-gift-heart"></span> Changkyun</span></a>
-                    </li>
-
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-crystal-ball"></span> Zam</span></a>
-                    </li>
-
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-ribbon"></span> Aisu</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-watch"></span> Clockworkhill</span></a>
-                    </li>
-                    <li class="thumbnail-item disabled">
-                        <a href="#"><span><span class="ec ec-cherry-blossom"></span> Kawerik</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-city-sunset"></span> Rys</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-herb"></span> Greenllamas</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-flower-playing-cards"></span> Lena</span></a>
-                    </li>
-                    <li class="thumbnail-item">
-                        <a href="#"><span><span class="ec ec-star2"></span>
-                                Twilightpromises</span></a>
-                    </li>
-                    <li class="thumbnail-item disabled">
-                        <a href="#"><span><span class="ec ec-crescent-moon"></span>
-
-                                Vikai
-                            </span></a>
-                    </li>
-                    <li class="thumbnail-item disabled">
-                        <a href="#"><span><span class="ec ec-squid"></span>
-                                Austin
-                            </span></a>
+                <div class="wrapper__portfolio--top">
+                    <h1>Portfolio</h1>
+                    <p>You can see more information by clicking one of these links. If you are interested in
+                        commissioning me, go to commissions page. Thanks!</p>
+                </div>
+                <ul class="thumbnail">
+                    <li class="thumbnail-item" v-for="d in data" v-bind:class="{ 'is-left': d.isLeft }">
+                        <a v-on:click="openDetail(d.Id)" href="javascript:;" class="openDetail"><span>{{ d.Name }}
+                                <sup>{{d.Year}}</sup></span></a>
                     </li>
                 </ul>
             </div>
         </div>
+        <popup :id="data[id].Id" v-if="popup" :data="data[id]"></popup>
     </main>
+
+    <template id="popup">
+        <transition name="popup">
+            <section class="wrapper__preview">
+                <button v-on:click="closepopup()" class="btn-close" aria-label="Close button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="wrapper__preview--inner">
+                    <h1 class="wrapper__preview--title"> {{ data.Name }}</h1>
+
+                    <div class="wrapper__preview--type">
+                        <ul>
+                            <li><strong>Type:</strong> {{data.Type }}</li>
+                            <li><strong>Year:</strong> {{data.Year}}</li>
+                            <li v-if="data.Link"><strong>Live preview:</strong> <a :href="data.Link"> {{ data.Link }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
+                                        stroke-linejoin="bevel">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path
+                                                d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8" />
+                                        </g>
+                                    </svg></a></li>
+                            <li v-else><strong>Live preview:</strong> No preview available</li>
+                        </ul>
+                    </div>
+
+                    <div class="wrapper__preview--desc">
+                        <p>{{ data.Description }}</p>
+                    </div>
+                </div>
+            </section>
+        </transition>
+    </template>
 
     <nav class="bottom">
         <div class="bottom__more">
@@ -210,6 +203,69 @@
     </footer>
 
     <script src="js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script>
+        const dataUrl =
+            "https://docs.google.com/spreadsheets/d/e/2PACX-1vTeembzbicy7RsaWmbGamypI-EpPqeGh9HTDXUMwlqa_34Ydgb8wLIiiux3g6Zpxy9cIhF6kJbk2lvh/pub?output=csv";
+
+        Vue.component('popup', {
+            template: '#popup',
+            props: ["data"],
+            methods: {
+                closepopup: function () {
+                    app.popup = false;
+                    document.documentElement.style.overflow = "auto"
+                }
+            }
+        })
+
+        const app = new Vue({
+            el: "#main",
+            data: function () {
+                return {
+                    popup: false,
+                    id: 1,
+                    data: []
+                };
+            },
+            created: function () {
+                this.fetchData();
+            },
+            methods: {
+                fetchData() {
+                    Papa.parse(dataUrl, {
+                        download: true,
+                        header: true,
+                        complete: (results) => {
+                            let a = []
+                            let tempResult = []
+                            results?.data.forEach((e, i) => {
+                                if (a.length < 2) {
+                                    tempResult.push({ ...e, isLeft: true })
+                                }
+                                else {
+                                    tempResult.push({ ...e, isLeft: false })
+                                }
+                                if (a.length === 3) {
+                                    a = []
+                                }
+                                else {
+                                    a.push(i)
+                                }
+                            });
+                            this.data = tempResult
+                        }
+                    });
+                },
+                openDetail: function (id) {
+                    this.id = id;
+                    this.popup = true;
+                    document.documentElement.style.overflow = "hidden"
+                }
+            }
+        });
+    </script>
 
 </body>
 

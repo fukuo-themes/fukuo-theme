@@ -683,44 +683,243 @@ body {
   }
 
   &__portfolio {
+    position: relative;
+
+    &::before {
+      content:'';
+      position: absolute;
+      left: 0;
+      top:-80%;
+      
+      width:80vw;
+      height: 80%;
+      transform: translateX(-25%);
+      filter: blur(100px);
+     
+      background: radial-gradient(circle at 100% 80%, #FFA800, transparent 10%), radial-gradient(circle at 80% 50%, #ff47d699, transparent 25%), radial-gradient(circle at 0% 100%, #c9f1ff, #c9f1ff, transparent 25%);
+      z-index: -1;
+    }
+
     ul {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap:1.5rem;
-      
-      margin:0;
+
+      margin:3rem -1rem;
       padding:0;
 
       list-style: none;
 
+      @media (max-width:60rem) {
+        grid-template-columns: 1fr;
+      }
+
       li {
         position: relative;
-        display: flex;
-        align-items: center;
+        text-align: right;
+
+        &.is-left {
+          text-align: left;
+        }
 
         &::after {
           content: "";
-    
+          position: absolute;
+          right: 30px;
+          top: 50%;
           display: block;
-          width:100%;
+          width: calc(100% - 45px);
           height: 3px;
-
           background-color: var(--heading-text);
         }
 
+        sup {
+          font-size: 0.98rem;
+          font-weight: 500;
+          font-family: var(--code-font);
+
+          border:2px solid #aaa;
+          padding:0.35rem 0.65rem;
+
+          border-radius: 30px;
+        }
+
         a {
+          display: block;
           position: relative;
-          display: inline-flex;
-          align-items: center;
 
           font-size:1.75rem;
-
           font-family: var(--heading-font);
+          font-weight: 500;
 
           text-decoration: none;
           color:var(--heading-text);
+          z-index: 2;
+
+          @media (max-width:60rem) {
+            font-size:1.35rem;
+          }
+
+          > span {
+            background-color:var(--bg-color);
+            padding:0 1rem;
+          }
         }
       }
+    }
+  }
+
+  &__preview {
+    position: fixed;
+    width:100%;
+    height: 100%;
+    overflow-y: auto;
+
+    left:0;
+    top:0;
+
+    padding: 5.5rem 4rem;
+    background-color: var(--footer-navigation-link);
+    z-index: 999;
+    animation: fadeIn 0.5s;
+    -webkit-animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -o-animation: fadeIn 0.5s;
+    -ms-animation: fadeIn 0.5s;
+
+    @media (max-width:60rem) {
+      padding:0;
+    }
+
+    .btn-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 3rem 2rem;
+      display: inline-flex;
+      align-items: center;
+
+      width:4rem;
+      height: 4rem;
+
+      background-color: var(--secondary-color);
+      color: var(--bg-card);
+      padding: 0.85rem 1rem;
+      font-family: var(--body-font);
+      font-size: 1.1rem;
+      font-weight: bold;
+      border:0;
+
+      cursor: pointer;
+
+      -webkit-transition: 0.45s;
+      transition: 0.45s;
+      border-radius: 100%;
+
+      @media (max-width:60rem) {
+        border-radius: 0;
+        margin:0;
+        font-size: 0.65rem;
+        width:3.5rem;
+        height: 3.5rem;
+      }
+    }
+
+    &--inner {
+      margin:0 auto;
+      max-width:55rem;
+      height: 100%;
+
+      background-color:var(--bg-card);
+      padding:1.5rem 2rem;
+
+      border-radius: 16px;
+
+      border:3px solid #ccc;
+
+      @media (max-width:60rem) {
+        border-radius: 0;
+        margin:0;
+        border:0;
+        padding:4.5rem 2rem;
+      }
+    }
+
+    &--title {
+      font-weight: 400;
+      font-family: var(--heading-font);
+      font-size: 2em;
+      margin-bottom: 0.5rem;
+      color:var(--heading-text);
+    }
+
+    &--type {
+      background-color:rgba(#111, 0.1);
+
+      padding:1.85rem 1.95rem;
+      margin:2rem 0 1.5rem 0;
+
+      border-radius: 10px;
+
+      ul {
+        list-style: none;
+        margin:0;
+        padding:0;
+
+        li {
+          color:var(--body-text);
+          display: flex;
+          align-self:center;
+          flex-wrap: wrap;
+
+          font-size:1.1rem;
+
+          @media (max-width:60rem) {
+            flex-direction: column;
+
+            & + li {
+              margin-top: 0.65rem;
+            }
+          }
+
+          strong {
+            flex-grow: 1;
+          }
+
+          a {
+            display: inline-flex;
+            align-items: center;
+
+            color:var(--secondary-color);
+            font-weight: bold;
+
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+
+            -ms-word-break: break-all;
+            /* This is the dangerous one in WebKit, as it breaks things wherever */
+            word-break: break-all;
+            /* Instead use this non-standard one: */
+            word-break: break-word;
+
+            /* Adds a hyphen where the word breaks, if supported (No Blink) */
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+
+            svg {
+              margin-left: 0.35rem;
+            }
+          }
+        }
+      }
+    }
+
+    &--desc {
+      color:var(--body-text);
+      // max-width: 60rem;
+
     }
   }
 
@@ -774,6 +973,7 @@ body {
 
       @media (max-width:60rem) {
         max-width: 75rem;
+        font-size: 2rem;
       }
 
       h5 {
@@ -1000,6 +1200,31 @@ body {
 }
 }
 
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
 .cursor {
   pointer-events: none;
 
@@ -1110,4 +1335,14 @@ form {
       }
     }
   }
+}
+
+body .popup-enter-active,
+body .popup-leave-active {
+	transition: all 0.5s;
+}
+
+body .popup-enter,
+body .popup-leave-active {
+		opacity: 0;
 }
