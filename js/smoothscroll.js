@@ -2,7 +2,7 @@ if (window.matchMedia("(min-width: 960px)").matches) {
     const hash = window.location.hash;
     const scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), {
         continuousScrolling: false,
-        alwaysShowTracks: false,
+        alwaysShowTracks: true,
         damping: 0.1,
         plugins: {}
     });
