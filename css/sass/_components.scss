@@ -138,6 +138,8 @@
     
     &__col--1 {
         grid-column: 1/-1;
+        background-color: var(--bg-color);
+        z-index: 2;
     }
 
     &__grid {
