@@ -55,14 +55,14 @@
                         commissioning me, go to commissions page. Thanks!</p>
                 </div>
                 <ul class="thumbnail">
-                    <li class="thumbnail-item" v-for="d in data" v-bind:class="{ 'is-left': d.isLeft }">
+                    <li class="thumbnail-item" v-for="d in items" v-bind:class="{ 'is-left': d.isLeft }">
                         <a v-on:click="openDetail(d.Id)" href="javascript:;" class="openDetail"><span>{{ d.Name }}
                                 <sup>{{d.Year}}</sup></span></a>
                     </li>
                 </ul>
             </div>
         </div>
-        <popup :id="data[id].Id" v-if="popup" :data="data[id]"></popup>
+        <popup :id="items[id].Id" v-if="popup" :data="items[id]"></popup>
     </main>
 
     <template id="popup">
@@ -98,6 +98,13 @@
 
                     <div class="wrapper__preview--desc">
                         <p>{{ data.Description }}</p>
+                    </div>
+
+                    <div class="wrapper__preview--img" v-if="data.Screenshot">
+                        <figure v-for=" img in data.Screenshot">
+                            <img :src="img.url" alt="">
+                        </figure>
+
                     </div>
                 </div>
             </section>
@@ -205,67 +212,8 @@
     <script src="js/navigation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
-    <script>
-        const dataUrl =
-            "https://docs.google.com/spreadsheets/d/e/2PACX-1vTeembzbicy7RsaWmbGamypI-EpPqeGh9HTDXUMwlqa_34Ydgb8wLIiiux3g6Zpxy9cIhF6kJbk2lvh/pub?output=csv";
-
-        Vue.component('popup', {
-            template: '#popup',
-            props: ["data"],
-            methods: {
-                closepopup: function () {
-                    app.popup = false;
-                    document.documentElement.style.overflow = "auto"
-                }
-            }
-        })
-
-        const app = new Vue({
-            el: "#main",
-            data: function () {
-                return {
-                    popup: false,
-                    id: 1,
-                    data: []
-                };
-            },
-            created: function () {
-                this.fetchData();
-            },
-            methods: {
-                fetchData() {
-                    Papa.parse(dataUrl, {
-                        download: true,
-                        header: true,
-                        complete: (results) => {
-                            let a = []
-                            let tempResult = []
-                            results?.data.forEach((e, i) => {
-                                if (a.length < 2) {
-                                    tempResult.push({ ...e, isLeft: true })
-                                }
-                                else {
-                                    tempResult.push({ ...e, isLeft: false })
-                                }
-                                if (a.length === 3) {
-                                    a = []
-                                }
-                                else {
-                                    a.push(i)
-                                }
-                            });
-                            this.data = tempResult
-                        }
-                    });
-                },
-                openDetail: function (id) {
-                    this.id = id;
-                    this.popup = true;
-                    document.documentElement.style.overflow = "hidden"
-                }
-            }
-        });
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/portfolio.js"></script>
 
 </body>
 
