@@ -54,12 +54,43 @@
                     <p>You can see more information by clicking one of these links. If you are interested in
                         commissioning me, go to commissions page. Thanks!</p>
                 </div>
+                <div v-if="loading" class="loading">
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <h2>Loading....</h2>
+                </div>
+
                 <ul class="thumbnail">
                     <li class="thumbnail-item" v-for="d in items" v-bind:class="{ 'is-left': d.isLeft }">
-                        <a v-on:click="openDetail(d.Id)" href="javascript:;" class="openDetail"><span>{{ d.Name }}
-                                <sup>{{d.Year}}</sup></span></a>
+                        <a v-on:click="openDetail(d.fields.Id)" href="javascript:;" class="openDetail"><span>{{
+                                d.fields.Name
+                                }}
+                                <sup>{{d.fields.Year}}</sup></span></a>
                     </li>
                 </ul>
+
+                <div class="cta is--primary">
+                    <div class="cta__inner">
+                        <p class="cta__subtitle" role="doc-subtitle">Hi, there!</p>
+                        <h2 class="cta__title">Consider commissioning me? 🍞</h2>
+                        <div class="cta__body">
+                            <p>If you like my work and can't find the theme that fits with your need or lack of
+                                personality, consider commissioning me a custom theme and/or pages (a personalized
+                                theme/pages only for you).
+                            </p>
+                        </div>
+                        <a class="cta__button cta__button--secondary " href="#" target="_blank">Read more <svg
+                                xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
+                                stroke-linejoin="bevel">
+                                <path d="M7 17l9.2-9.2M17 17V7H7" />
+                            </svg></a>
+                    </div>
+                </div>
             </div>
         </div>
         <popup :id="items[id].Id" v-if="popup" :data="items[id]"></popup>
@@ -77,13 +108,14 @@
                 </button>
 
                 <div class="wrapper__preview--inner">
-                    <h1 class="wrapper__preview--title"> {{ data.Name }}</h1>
+                    <h1 class="wrapper__preview--title"> {{ data.fields.Name }}</h1>
 
                     <div class="wrapper__preview--type">
                         <ul>
-                            <li><strong>Type:</strong> {{data.Type }}</li>
-                            <li><strong>Year:</strong> {{data.Year}}</li>
-                            <li v-if="data.Link"><strong>Live preview:</strong> <a :href="data.Link"> {{ data.Link }}
+                            <li><strong>Type:</strong> {{data.fields.Type }}</li>
+                            <li><strong>Year:</strong> {{data.fields.Year}}</li>
+                            <li v-if="data.fields.Link"><strong>Live preview:</strong> <a :href="data.fields.Link"> {{
+                                    data.fields.Link }}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
                                         stroke-linejoin="bevel">
@@ -97,15 +129,23 @@
                     </div>
 
                     <div class="wrapper__preview--desc">
-                        <p>{{ data.Description }}</p>
+                        <p>{{ data.fields.Description }}</p>
                     </div>
 
-                    <div class="wrapper__preview--img" v-if="data.Screenshot">
-                        <figure v-for=" img in data.Screenshot">
-                            <img :src="img.url" alt="">
-                        </figure>
-
+                    <div class="wrapper__preview--img" v-if="data.fields.Screenshot">
+                        <div v-for=" img in data.fields.Screenshot">
+                            <figure>
+                                <img class="tns-lazy-img" :data-src="img.url" alt="">
+                            </figure>
+                        </div>
                     </div>
+                    <ul class="wrapper__preview--thumbnails" id="customize-thumbnails">
+                        <li v-for=" img in data.fields.Screenshot">
+                            <figure>
+                                <img :src="img.url" alt="">
+                            </figure>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </transition>
@@ -213,6 +253,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="js/portfolio.js"></script>
 
 </body>

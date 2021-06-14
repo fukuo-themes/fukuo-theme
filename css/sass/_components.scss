@@ -364,7 +364,7 @@
         }
         
         &--secondary {
-            color:white;
+            color:var(--bg-card)!important;
 
             background-color:var(--secondary-color);
             border:3px solid var(--secondary-color);

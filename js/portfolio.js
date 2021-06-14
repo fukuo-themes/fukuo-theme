@@ -8,11 +8,32 @@ const airTableName = "Data"
 Vue.component('popup', {
     template: '#popup',
     props: ["data"],
+    mounted: function () {
+        this.slider();
+    },
     methods: {
         closepopup: function () {
             app.popup = false;
             document.documentElement.style.overflow = "auto"
-        }
+        },
+        slider: function () {
+            const img = tns({
+                container: '.wrapper__preview--img',
+                items: 1,
+                slideBy: 'page',
+                autoplay: true,
+                controls: true,
+                navContainer: "#customize-thumbnails",
+                navAsThumbnails: true,
+                lazyload: true,
+                loop: false,
+                autoplay: false,
+                controlsText: [
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>',
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=1 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>',
+                ],
+            });
+        },
     }
 })
 
@@ -24,6 +45,7 @@ const app = new Vue({
             id: 1,
             // data: [],
             items: [],
+            loading: false
         };
     },
     created: function () {
@@ -31,19 +53,39 @@ const app = new Vue({
     },
     methods: {
         fetchData() {
-            this.items = []
+            this.items = [];
+            this.loading = true;
+
             axios.get(`https://api.airtable.com/v0/${airTableApp}/${airTableName}?sort%5B0%5D%5Bfield%5D=Id&sort%5B0%5D%5Bdirection%5D=asc`,
                 { headers: { Authorization: "Bearer " + apiToken } })
                 .then((response) => {
+                    this.loading = false;
                     // load the API response into items for datatable
-                    this.items = response.data.records.map((item) => {
-                        console.log(item)
-
-                        return {
-                            id: item.id,
-                            ...item.fields
+                    // this.items = response.data.records.map((item) => {
+                    //     return {
+                    //         id: item.id,
+                    //         ...item.fields
+                    //     }
+                    // })
+                    let a = []
+                    let tempResult = []
+                    response.data.records.forEach((e, i) => {
+                        if (a.length < 2) {
+                            tempResult.push({ ...e, isLeft: true })
                         }
-                    })
+                        else {
+                            tempResult.push({ ...e, isLeft: false })
+                        }
+                        if (a.length === 3) {
+                            a = []
+                        }
+                        else {
+                            a.push(i)
+                        }
+                    });
+                    this.items = tempResult;
+
+                    // console.log(this.items);
                 }).catch((error) => {
                     console.log(error)
                 })
